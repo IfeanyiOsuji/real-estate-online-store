@@ -18,7 +18,7 @@ useEffect(()=>{
         setData(json);
         
         }
-        else{setError(response)}
+        else{throw response;}
         
         }
         catch(e){
