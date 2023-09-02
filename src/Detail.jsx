@@ -3,11 +3,13 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import useProductState from './services/useProductState';
+import Spinner from './Spinner';
 
 function Detail() {
     const {id} = useParams();
-    const {data:product} = useProductState(`products/${id}`)
-
+    const {data:product, loading, error} = useProductState(`products/${id}`)
+    if (loading) return <Spinner />
+    if(error) throw error;
   return (
     <div id='detail'>
         <h1>{product.name}</h1>

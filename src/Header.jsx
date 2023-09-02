@@ -19,10 +19,10 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <NavLink activeStyle={acStyle} to='/shoes'>Shoes</NavLink> 
+            <NavLink  to='/shoes'>Shoes</NavLink> 
           </li>
           <li>
-            <NavLink activeStyle={acStyle} to='/cart'>Cart</NavLink> 
+            <NavLink  to='/cart'>Cart</NavLink> 
           </li>
         </ul>
       </nav>
