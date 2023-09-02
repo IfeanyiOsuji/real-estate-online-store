@@ -9,15 +9,10 @@ const [error, setError] = useState(null)
 
 useEffect(()=>{
      console.log('in use effect')
-   getProducts('shoes').then(response =>{if(response){ 
-    setData(response)
-    console.log(response)
-    setLoading(false);
-}else {
-    setError("not found")
-}}).catch(e => {setLoading(false)
+   getProducts('shoes').then(response =>
+    setData(response)).catch(e => {setLoading(false)
     setError(e);
-});
+}).finally(()=>setLoading(false));
    
 }, []);
 return {data, loading, error}

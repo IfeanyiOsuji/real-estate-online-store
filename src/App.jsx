@@ -3,6 +3,7 @@ import "./App.css";
 import Footer from "./Footer";
 import Header from "./Header";
 import useProductState from "./services/useProductState";
+import Spinner from "./Spinner";
 
 
 export default function App() {
@@ -59,7 +60,7 @@ export default function App() {
 // ]
     const {data: products, loading, error} = useProductState()
     
-  console.log(products)
+  
   const filteredProduct = size ? products.filter(({skus}) => skus.find(sku => sku.size === parseInt(size))) : products
   if(error) throw error;
   return (
@@ -79,7 +80,7 @@ export default function App() {
          
           <section id="products">
             
-          {loading === false ? filteredProduct.map(renderProduct): <div>Loading...</div>}
+          {!loading ? filteredProduct.map(renderProduct): <Spinner />}
           </section>
         
           
