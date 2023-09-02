@@ -3,7 +3,7 @@ import "./App.css";
 
 import useProductState from "./services/useProductState";
 import Spinner from "./Spinner";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import PageNotFound from "./PageNotFound";
 
 
@@ -11,13 +11,15 @@ export default function Products() {
   const [size, setSize] = useState("");
   function renderProduct(p) {
     return (
+      
       <div key={p.id} className="product">
-        <a href="/">
+         <NavLink to= {`/${category}/${p.id}`}>
           <img src={`/images/${p.image}`} alt={p.name} />
           <h3>{p.name}</h3>
           <p>${p.price}</p>
-        </a>
+          </NavLink>
       </div>
+     
     );
   }
   const {category} = useParams();

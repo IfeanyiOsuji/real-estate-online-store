@@ -18,8 +18,8 @@ export default function App() {
         <Routes>
         <Route path="/" element={<h1>Hi Welcome to Ifeanyi's Online store</h1>}/>
         <Route path="/:category" element={<Products />}/>
-        <Route path="/product-detail" element={<Detail />}/>
-        <Route path="/product-cart" element={<Cart />}/>
+        <Route path="/:category/:id" element={<Detail />}/>
+        <Route path="/cart" element={<Cart />}/>
         </Routes>
         </main>
       </div>
