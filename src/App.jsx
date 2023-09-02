@@ -16,8 +16,8 @@ export default function App() {
         <Header />
         <main>
         <Routes>
-
-        <Route path="/" element={<Products />}/>
+        <Route path="/" element={<h1>Hi Welcome to Ifeanyi's Online store</h1>}/>
+        <Route path="/:category" element={<Products />}/>
         <Route path="/product-detail" element={<Detail />}/>
         <Route path="/product-cart" element={<Cart />}/>
         </Routes>

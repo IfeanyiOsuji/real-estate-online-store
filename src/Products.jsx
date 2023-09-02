@@ -3,6 +3,8 @@ import "./App.css";
 
 import useProductState from "./services/useProductState";
 import Spinner from "./Spinner";
+import { useParams } from "react-router-dom";
+import PageNotFound from "./PageNotFound";
 
 
 export default function Products() {
@@ -18,12 +20,13 @@ export default function Products() {
       </div>
     );
   }
-
-    const {data: products, loading, error} = useProductState("products?category=shoes")
+  const {category} = useParams();
+    const {data: products, loading, error} = useProductState(`products?category=${category}`)
     
   
   const filteredProduct = size ? products.filter(({skus}) => skus.find(sku => sku.size === parseInt(size))) : products
   if(error) throw error;
+  if(products.length ===0)return <PageNotFound />
   return (
     <>
       <div className="content">
