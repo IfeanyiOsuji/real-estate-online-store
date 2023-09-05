@@ -64,51 +64,6 @@
       "id": 1,
       "city": "",
       "country": ""
-    },
-    {
-      "city": "Lagos",
-      "country": "",
-      "id": 2
-    },
-    {
-      "city": "Lagos",
-      "country": "India",
-      "id": 3
-    },
-    {
-      "city": "Lagos, Nigeria",
-      "country": "India",
-      "id": 4
-    },
-    {
-      "city": "Lagos, Nigeria",
-      "country": "United Kingdom",
-      "id": 5
-    },
-    {
-      "city": "Lagos, Nigeria",
-      "country": "United Kingdom",
-      "id": 6
-    },
-    {
-      "city": "Lagos",
-      "country": "China",
-      "id": 7
-    },
-    {
-      "city": "Lagos",
-      "country": "India",
-      "id": 8
-    },
-    {
-      "city": "Lagos",
-      "country": "India",
-      "id": 9
-    },
-    {
-      "city": "Lagos, Nigeria",
-      "country": "China",
-      "id": 10
     }
   ]
 }

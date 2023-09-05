@@ -7,6 +7,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "create-react-app": "^1.2.1",
+    "@babel/plugin-proposal-private-property-in-object":"",
     "cross-env": "^7.0.2",
     "history": "^5.0.0",
     "json-server": "^0.17.3",
@@ -18,8 +19,8 @@
   },
   "scripts": {
     "start": "run-p start-app start-api",
-    "start-app": "cross-env REACT_APP_API_BASE_URL=http://localhost:3002/ react-scripts start",
-    "start-api": "json-server --port 3002 --watch db.json --delay 0",
+    "start-app": "cross-env REACT_APP_API_BASE_URL=http://localhost:3001/ react-scripts start",
+    "start-api": "json-server --port 3001 --watch db.json --delay 0",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

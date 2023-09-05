@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getProducts } from "./productService";
+
 const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
 
