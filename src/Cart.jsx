@@ -58,7 +58,7 @@ function Cart({cart, updateQuantity}) {
     <section id='cart'>
         <h1>{numOfItemsInCart ===0? 'Your cart is empty' : `${numOfItemsInCart} ${items}`}</h1>
         <ul>{cart.map(renderItem)}</ul>
-        <button className='btn btn-primary' onClick={()=>navigate('/checkout')}>Checkout</button>
+       {cart.length > 0 && <button className='btn btn-primary' onClick={()=>navigate('/checkout')}>Checkout</button>}
     </section>
   )
 }
