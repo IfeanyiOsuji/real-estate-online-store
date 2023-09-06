@@ -26,7 +26,7 @@ export default function App() {
     setCart(items =>{
       const itemsInCat = items.find(i => i.sku === sku);
       if(itemsInCat){
-        items.map(i => i.sku === sku? {id, sku,quantity :i.quantity+1}: i)
+        return items.map(i => i.sku === sku? {...i, quantity :i.quantity+1}: i)
       }
       else{return [...items, {id, sku, quantity:1}]}
     });
