@@ -14,7 +14,7 @@ const STATUS = {
   COMPLETED: 'COMPLETED',
 }
 
-export default function Checkout({ cart, emptyCart }) {
+export default function Checkout(props) {
   const [address, setAddress] = useState(emptyAddress);
   const [status, setStatus] = useState(STATUS.IDLE);
   const [saveError, setSaveError] = useState(null)
@@ -45,7 +45,7 @@ const isValid = Object.keys(errors).length === 0;
     if(isValid){
     try{
       await saveShippingAddress(address);
-      emptyCart()
+      props.dispatch({type:'empty'})
       setStatus(STATUS.COMPLETED);
     }
     catch(e){

@@ -6,7 +6,8 @@ import useFetchAll from './services/useFetchAll';
 import Spinner from './Spinner';
 import { useNavigate } from 'react-router-dom';
 
-function Cart({cart, updateQuantity}) {
+function Cart({dispatch}) {
+    const cart = JSON.parse(localStorage.getItem('cart'));
     const navigate = useNavigate();
     
     const urls = cart.map(i => `products/${i.id}`);
@@ -31,7 +32,7 @@ function Cart({cart, updateQuantity}) {
             <p>
                 <select 
                 aria-label={`Select quantity for ${name} size ${size}`}
-                onChange={(e)=>updateQuantity(sku, parseInt(e.target.value))
+                onChange={(e)=>dispatch({type:'update',sku, quantity:parseInt(e.target.value)})
                     
                 }
                 value={quantity}>
