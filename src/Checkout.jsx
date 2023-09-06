@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { saveShippingAddress } from "./services/shippingService";
+import { AppContext } from "./context/AppContext";
 
 // Declaring outside component to avoid recreation on each render
 const emptyAddress = {
@@ -14,7 +15,9 @@ const STATUS = {
   COMPLETED: 'COMPLETED',
 }
 
-export default function Checkout(props) {
+export default function Checkout() {
+const {dispatch} = useContext(AppContext);
+
   const [address, setAddress] = useState(emptyAddress);
   const [status, setStatus] = useState(STATUS.IDLE);
   const [saveError, setSaveError] = useState(null)
@@ -45,7 +48,7 @@ const isValid = Object.keys(errors).length === 0;
     if(isValid){
     try{
       await saveShippingAddress(address);
-      props.dispatch({type:'empty'})
+      dispatch({type:'empty'})
       setStatus(STATUS.COMPLETED);
     }
     catch(e){

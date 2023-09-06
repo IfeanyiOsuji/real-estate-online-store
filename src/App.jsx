@@ -9,6 +9,7 @@ import Detail from "./Detail";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
 import CartReducer from "./cartReducer";
+import AppProvider from "./context/AppContext";
 
 
 
@@ -23,27 +24,22 @@ try{
 
 
 export default function App() {
-  const [cart, dispatch] = useReducer(CartReducer, initialCart);
 
-  useEffect(()=>localStorage.setItem('cart', JSON.stringify(cart)), [cart]);
-
-  
- 
   return (
-    <>
+    <AppProvider cart={initialCart}>
       <div className="content">
         <Header />
         <main>
         <Routes>
         <Route path="/" element={<h1>Hi Welcome to Ifeanyi's Online store</h1>}/>
         <Route path="/:category" element={<Products />}/>
-        <Route path="/:category/:id" element={<Detail dispatch ={dispatch}/>}/>
-        <Route path="/cart" element={<Cart cart={cart} dispatch={dispatch} />}/>
-        <Route path="/checkout" element={<Checkout cart={cart} dispatch={dispatch}/>}/>
+        <Route path="/:category/:id" element={<Detail/>}/>
+        <Route path="/cart" element={<Cart />}/>
+        <Route path="/checkout" element={<Checkout />}/>
         </Routes>
         </main>
       </div>
       <Footer />
-    </>
+    </AppProvider>
   );
 }

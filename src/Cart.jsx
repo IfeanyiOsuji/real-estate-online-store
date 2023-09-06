@@ -1,13 +1,20 @@
 
 
-import React, { useMemo } from 'react'
+import React, { useContext, useMemo } from 'react'
 
 import useFetchAll from './services/useFetchAll';
 import Spinner from './Spinner';
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from './context/AppContext';
 
-function Cart({dispatch}) {
-    const cart = JSON.parse(localStorage.getItem('cart'));
+function Cart() {
+
+    const {cart, dispatch} = useContext(AppContext);
+
+    console.log(cart);
+    
+   // const cart = JSON.parse(localStorage.getItem('cart'));
+   
     const navigate = useNavigate();
     
     const urls = cart.map(i => `products/${i.id}`);
