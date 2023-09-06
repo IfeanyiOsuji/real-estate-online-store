@@ -1,13 +1,16 @@
 
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import useProductState from './services/useProductState';
 import Spinner from './Spinner';
 import PageNotFound from './PageNotFound';
+import { AppContext } from './context/AppContext';
 
-function Detail(props) {
+function Detail() {
     const {id} = useParams();
+
+    const {dispatch} = useContext(AppContext);
     
     const navigate = useNavigate()
 
@@ -36,7 +39,7 @@ function Detail(props) {
             <p>
                 
         <button className='btn btn-primary' onClick={()=>{
-            props.addToCart(id, sku);
+            dispatch({type:'add',id, sku});
             navigate('/cart')
     }} disabled={!sku}>Add to cart</button>
             </p>

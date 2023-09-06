@@ -1,12 +1,18 @@
 
 
-import React, { useMemo } from 'react'
+import React, { useContext, useMemo } from 'react'
 
 import useFetchAll from './services/useFetchAll';
 import Spinner from './Spinner';
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from './context/AppContext';
 
-function Cart({cart, updateQuantity}) {
+function Cart() {
+
+    const {cart, dispatch} = useContext(AppContext);
+    
+   // const cart = JSON.parse(localStorage.getItem('cart'));
+   
     const navigate = useNavigate();
     
     const urls = cart.map(i => `products/${i.id}`);
@@ -31,7 +37,7 @@ function Cart({cart, updateQuantity}) {
             <p>
                 <select 
                 aria-label={`Select quantity for ${name} size ${size}`}
-                onChange={(e)=>updateQuantity(sku, parseInt(e.target.value))
+                onChange={(e)=>dispatch({type:'update',sku, quantity:parseInt(e.target.value)})
                     
                 }
                 value={quantity}>
@@ -53,7 +59,7 @@ function Cart({cart, updateQuantity}) {
     if(error) throw error;
 
     
-    const items = numOfItemsInCart > 1 ? 'item': 'items'
+    const items = numOfItemsInCart > 1 ? 'items': 'item'
   return (
     <section id='cart'>
         <h1>{numOfItemsInCart ===0? 'Your cart is empty' : `${numOfItemsInCart} ${items}`}</h1>
