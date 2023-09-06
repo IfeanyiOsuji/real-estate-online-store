@@ -10,8 +10,6 @@ import { AppContext } from './context/AppContext';
 function Cart() {
 
     const {cart, dispatch} = useContext(AppContext);
-
-    console.log(cart);
     
    // const cart = JSON.parse(localStorage.getItem('cart'));
    
@@ -61,7 +59,7 @@ function Cart() {
     if(error) throw error;
 
     
-    const items = numOfItemsInCart > 1 ? 'item': 'items'
+    const items = numOfItemsInCart > 1 ? 'items': 'item'
   return (
     <section id='cart'>
         <h1>{numOfItemsInCart ===0? 'Your cart is empty' : `${numOfItemsInCart} ${items}`}</h1>

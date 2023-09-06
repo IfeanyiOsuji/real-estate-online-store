@@ -6,7 +6,7 @@ import CartReducer from "../cartReducer";
 
 export const AppContext = createContext();
 
-const AppProvider = ({children, initialCart=[]}) =>{
+const AppContextProvider = ({children, initialCart=[]}) =>{
    
     const [cart, dispatch] = useReducer(CartReducer,initialCart);
     console.log('cart', cart)
@@ -20,4 +20,4 @@ const AppProvider = ({children, initialCart=[]}) =>{
     )
 }
 
-export default AppProvider;
+export default AppContextProvider;
